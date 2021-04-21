@@ -1,0 +1,11 @@
+strings:
+  inputs: MesanApplication/SwiftGen
+  filter: .+\.strings$
+  outputs:
+    - templateName: structured-swift5
+      output: MesanApplication/SwiftGen/strings.swift
+xcassets:
+  inputs: MesanApplication/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: MesanApplication/SwiftGen/assets.swift

@@ -1,0 +1,39 @@
+// MARK: - Common
+
+Common.next = "Далее";
+Common.close = "Закрыть";
+Common.done = "Готово";
+Common.cancel = "Отмена";
+Common.no = "Нет";
+Common.yes = "Да";
+Common.dave = "Сохранить";
+Common.remove = "Удалить";
+Common.update = "Обновить";
+Common.logout = "Выйти";
+
+// MARK: - Tabbar
+
+Tabbar.tab1 = "Test";
+
+// MARK: - Onboarding
+
+Onboarding.title = "Test";
+Onboarding.singIn = "Войти";
+Onboarding.singUp = "Зарегистрироваться";
+
+// MARK: - SignIn
+
+SignIn.loginPlaceholder = "Логин";
+SignIn.passwordPlaceholder = "Пароль";
+
+// MARk: - Firebase errors
+Error.emailAlreadyInUse = "Почта уже используется";
+Error.userNotFound = "Пользователь не найден";
+Error.userDisabled = "Аккаунт был заблокирован";
+Error.invalidEmail = "Некорректная почта";
+Error.invalidSender = "Некорректная почта";
+Error.invalidRecipientEmail = "Некорректная почта";
+Error.networkError = "Ошибка соединения, попробуйте позже";
+Error.weakPassword = "Слабый пароль";
+Error.wrongPassword = "Неверный пароль";
+Error.error = "Ошибка";

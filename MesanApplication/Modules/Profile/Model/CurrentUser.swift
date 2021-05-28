@@ -6,7 +6,6 @@
 //
 
 import Foundation
-// swiftlint:disable trailing_whitespace
 
 struct CurrentUser {
     

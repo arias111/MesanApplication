@@ -6,13 +6,12 @@
 //
 
 import Foundation
-// swiftlint:disable trailing_whitespace
 
 struct UserProfile {
     let id: Int?
     let email: String?
     
-    init(data: [String:Any]) {
+    init(data: [String: Any]) {
         let id = data["id"] as? Int
         let email = data["email"] as? String
         self.id = id

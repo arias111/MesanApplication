@@ -7,7 +7,6 @@
 
 import UIKit
 import MapKit
-// swiftlint:disable trailing_whitespace
 
 class MapView: UIView {
     
@@ -44,7 +43,6 @@ class MapView: UIView {
     }
     
     private func addSubviews() {
-
     }
     
     // MARK: - Constraints

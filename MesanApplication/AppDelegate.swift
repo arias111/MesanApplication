@@ -8,25 +8,22 @@
 import UIKit
 import CoreData
 import Firebase
-
-let primaryColor = UIColor(red: 30/255, green: 109/255, blue: 128/255, alpha: 1)
-let secondaryColor = UIColor(red: 107/255, green: 148/255, blue: 230/255, alpha: 1)
+import SwiftKeychainWrapper
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var coordinator: MainCoordinator?
     var window: UIWindow?
-
-
+    // swiftlint:disable redundant_type_annotation
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-
-        let navController = UINavigationController()
-        coordinator = MainCoordinator(navigationController: navController)
-        coordinator?.start()
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = navController
-        window?.makeKeyAndVisible()
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let accessToken = KeychainWrapper.standard.string(forKey: "accessToken")
+        if accessToken != nil {
+            let profilePage = mainStoryboard.instantiateViewController(identifier: "UserViewController") as! UserViewController
+            self.window?.rootViewController = profilePage
+        } else {
+            let loginPage = mainStoryboard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        }
         return true
     }
     
@@ -43,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "MesanApplication")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { storeDescription, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
@@ -64,5 +61,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }

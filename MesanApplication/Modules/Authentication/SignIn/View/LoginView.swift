@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import SnapKit
-// swiftlint:disable trailing_whitespace
 
 final class LoginView: UIView {
     struct Appearance: Grid {
@@ -40,8 +39,7 @@ final class LoginView: UIView {
     }
     
     private func setupStyles() {
-        backgroundColor = UIColor(patternImage: UIImage(named: "Night.png")!)
-
+        backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Night"))
     }
     
     private func addSubviews() {
@@ -58,9 +56,8 @@ final class LoginView: UIView {
         button.backgroundColor = .white
         button.setTitle("Регистрация", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.setTitleColor(secondaryColor, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 4
-        //        self.view.addSubview(button)
         return button
     }()
     
@@ -68,8 +65,8 @@ final class LoginView: UIView {
         let btn = PrimaryButton()
         btn.setTitle("Войти", for: .normal)
         btn.setTitleColor(.white, for: .normal)
+        btn.backgroundColor = #colorLiteral(red: 0.01712364331, green: 0.1915538609, blue: 0.4312075078, alpha: 1)
         btn.alpha = 0.5
-        //        btn.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
         return btn
     }()
     
@@ -99,30 +96,28 @@ final class LoginView: UIView {
 
     func makeConstraints() {
         
-        continueButton.snp.makeConstraints { (make) in
+        continueButton.snp.makeConstraints { make in
             make.width.equalTo(200)
             make.height.equalTo(appearance.xxlSpace)
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(300)
+            make.bottom.equalToSuperview().inset(70)
         }
-        loginBtn.snp.makeConstraints { (make) in
+        
+        loginBtn.snp.makeConstraints { make in
             make.height.equalTo(LoginView.Appearance.mySize)
-            make.width.equalTo(LoginView.Appearance.wigthSize)
             make.center.equalToSuperview()
             make.left.equalToSuperview().offset(appearance.sSpace)
         }
         
-        loginTextField.snp.makeConstraints { (make) in
+        loginTextField.snp.makeConstraints { make in
             make.height.greaterThanOrEqualTo(appearance.xxlSpace)
-            make.width.greaterThanOrEqualTo(LoginView.Appearance.wigthSize)
             make.centerX.equalToSuperview().offset(150)
             make.bottom.equalTo(loginBtn).offset(-150)
             make.left.right.equalTo(loginBtn)
         }
         
-        passwordTextField.snp.makeConstraints { (make) in
+        passwordTextField.snp.makeConstraints { make in
             make.height.greaterThanOrEqualTo(appearance.xxlSpace)
-            make.width.greaterThanOrEqualTo(LoginView.Appearance.wigthSize)
             make.centerX.equalToSuperview().offset(150)
             make.bottom.equalTo(loginTextField).offset(LoginView.Appearance.mySize)
             make.left.right.equalTo(loginBtn)
@@ -130,7 +125,7 @@ final class LoginView: UIView {
         
         //        guard let messanImage = UIImage(named: "logomesan") else {return}
         //            let imageView = UIImageView(image: messanImage)
-        logLabel.snp.makeConstraints { (make) in
+        logLabel.snp.makeConstraints { make in
             make.bottom.equalTo(loginTextField).offset(-70)
             make.centerX.equalToSuperview()
         }

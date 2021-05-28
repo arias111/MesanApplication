@@ -7,11 +7,10 @@
 
 import UIKit
 import MapKit
-// swiftlint:disable trailing_whitespace
 
-class MapViewController: UIViewController{
+class MapViewController: UIViewController {
 
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet private weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
     
@@ -42,13 +41,17 @@ class MapViewController: UIViewController{
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways:
             break
+            
         case .authorizedWhenInUse:
             mapView.showsUserLocation = true
             locationManager.startUpdatingLocation()
+            
         case .denied:
             showAlert(title: "Вы запретили использоваие местоположения", message: "Включить?", url: URL(string: UIApplication.openSettingsURLString))
+            
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
+            
         default:
             break
         }
@@ -56,7 +59,7 @@ class MapViewController: UIViewController{
     
     func showAlert(title: String, message: String?, url: URL?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let settings = UIAlertAction(title: "Настройки", style: .default) { (alert) in
+        let settings = UIAlertAction(title: "Настройки", style: .default) { alert in
             if let url = url {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }

@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-// swiftlint:disable trailing_whitespace
+
 final class PrimaryButton: UIButton {
     enum CommonConstants {
         static let height: CGFloat = 48

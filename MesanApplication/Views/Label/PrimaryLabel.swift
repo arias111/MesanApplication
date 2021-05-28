@@ -1,8 +1,8 @@
 //
-//  PrimaryLabel\.swift
+//  PrimaryLabel.swift
 //  MesanApplication
 //
-//  Created by galiev nail on 19.04.2021.
+//  Created by galiev nail on 20.03.2021.
 //
 
 import Foundation

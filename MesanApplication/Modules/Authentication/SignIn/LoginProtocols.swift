@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+protocol LoginViewInput: AnyObject {
+    func showError(message: String)
+    func presentEvents()
+}
+
+protocol LoginViewOutput: AnyObject {
+    func loginIn(email: String, password: String)
+}

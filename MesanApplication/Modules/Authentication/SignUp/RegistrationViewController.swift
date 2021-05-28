@@ -7,10 +7,8 @@
 
 import UIKit
 import Firebase
-// swiftlint:disable trailing_whitespace
 
-class RegistrationViewController: UIViewController, Storyboarded {
-    weak var coordinator: MainCoordinator?
+class RegistrationViewController: UIViewController {
     var activityIndicator: UIActivityIndicatorView!
     private lazy var contentView = RegistationView()
     // MARK: - Live cycle
@@ -22,9 +20,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         setContinueButton(enabled: false)
-
         addTargets()
     }
     
@@ -52,7 +48,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
             return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { user, error in
             if let error = error {
                 print(error.localizedDescription)
                 return

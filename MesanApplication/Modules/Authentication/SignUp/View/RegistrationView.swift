@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import SnapKit
-// swiftlint:disable trailing_whitespace
 
 final class RegistationView: UIView {
     struct Appearance: Grid {
@@ -19,6 +18,7 @@ final class RegistationView: UIView {
     struct ViewModel {
         let isActiveNextButton: Bool
     }
+    
     let appearance: Appearance
     // MARK: - Init
 
@@ -39,7 +39,7 @@ final class RegistationView: UIView {
     }
     
     private func setupStyles() {
-        backgroundColor = UIColor(patternImage: UIImage(named: "Night.png")!)
+        backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Night"))
     }
     
     private func addSubviews() {
@@ -53,22 +53,21 @@ final class RegistationView: UIView {
     lazy var registrationButton: UIButton = {
         let btn = PrimaryButton()
         btn.setTitle("Создать аккаунт", for: .normal)
+        btn.backgroundColor = #colorLiteral(red: 0.01712364331, green: 0.1915538609, blue: 0.4312075078, alpha: 1)
         return btn
     }()
     
     lazy var loginTextField: UITextField = {
         let textField = PrimaryTextField()
         textField.attributedPlaceholder =
-            NSAttributedString(string: "Введите почту",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+            NSAttributedString(string: "Введите почту", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         return textField
     }()
     
     lazy var passwordTextField: UITextField = {
         let passwordTF = PrimaryTextField()
         passwordTF.attributedPlaceholder =
-            NSAttributedString(string: "Введите пароль",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+            NSAttributedString(string: "Введите пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         passwordTF.isSecureTextEntry = true
         return passwordTF
     }()
@@ -76,8 +75,7 @@ final class RegistationView: UIView {
     lazy var confirmTextField: UITextField = {
         let confirmTF = PrimaryTextField()
         confirmTF.attributedPlaceholder =
-            NSAttributedString(string: "Подтверите пароль",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+            NSAttributedString(string: "Подтверите пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         confirmTF.isSecureTextEntry = true
         return confirmTF
     }()
@@ -89,21 +87,21 @@ final class RegistationView: UIView {
     }()
     
     func makeConstraints() {
-        confirmTextField.snp.makeConstraints { (make) in
+        confirmTextField.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.left.equalToSuperview().offset(appearance.lSpace)
             make.height.greaterThanOrEqualTo(appearance.xxlSpace)
-            make.width.greaterThanOrEqualTo(LoginView.Appearance.wigthSize)
+            make.width.greaterThanOrEqualTo(RegistationView.Appearance.wigthSize)
         }
         
-        passwordTextField.snp.makeConstraints { (make) in
+        passwordTextField.snp.makeConstraints { make in
             make.height.greaterThanOrEqualTo(appearance.xxlSpace)
             make.width.greaterThanOrEqualTo(LoginView.Appearance.wigthSize)
             make.centerX.equalTo(confirmTextField)
             make.left.equalToSuperview().offset(appearance.lSpace)
             make.bottom.equalTo(confirmTextField).offset(-RegistationView.Appearance.mySize)
         }
-        loginTextField.snp.makeConstraints { (make) in
+        loginTextField.snp.makeConstraints { make in
             make.height.greaterThanOrEqualTo(appearance.xxlSpace)
             make.width.greaterThanOrEqualTo(LoginView.Appearance.wigthSize)
             make.centerX.equalTo(confirmTextField)
@@ -111,12 +109,12 @@ final class RegistationView: UIView {
             make.bottom.equalTo(passwordTextField).offset(-RegistationView.Appearance.mySize)
         }
         
-        regLabel.snp.makeConstraints { (make) in
+        regLabel.snp.makeConstraints { make in
             make.bottom.equalTo(loginTextField).offset(-70)
             make.centerX.equalToSuperview()
         }
         
-        registrationButton.snp.makeConstraints { (make) in
+        registrationButton.snp.makeConstraints { make in
             make.height.equalTo(RegistationView.Appearance.mySize)
             make.width.equalTo(confirmTextField).offset(-(appearance.xxxsSpace))
             make.centerX.equalTo(confirmTextField)

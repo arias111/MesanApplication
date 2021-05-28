@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  MesanApplication
 //
 //  Created by galiev nail on 20.03.2021.
@@ -9,12 +9,18 @@ import UIKit
 import Firebase
 import SnapKit
 import FirebaseDatabase
-// swiftlint:disable trailing_whitespace
-class LoginViewController: UIViewController, Storyboarded {
+import SwiftKeychainWrapper
+
+class LoginViewController: UIViewController {
     var userProfile: UserProfile?
     var activityIndicator: UIActivityIndicatorView!
-    weak var coordinator: MainCoordinator?
     private lazy var contentView = LoginView()
+//    var presenter: LoginViewOutput?
+    
+//    private func setup() {
+//        presenter = LoginPresenter(view: self)
+//    }
+//
     // MARK: - Live cycle
     
     override func loadView() {
@@ -49,7 +55,6 @@ class LoginViewController: UIViewController, Storyboarded {
         contentView.passwordTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         contentView.loginBtn.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
         contentView.continueButton.addTarget(self, action: #selector(toSignUp), for: .touchUpInside)
-
     }
     
     @objc private func textFieldChanged() {
@@ -66,7 +71,6 @@ class LoginViewController: UIViewController, Storyboarded {
     
     @objc private func pushToRegVc(_ sender: Any) {
         print("tapped")
-        coordinator?.navigateRegistration()
     }
     
     private func setLoginButton(enabled: Bool) {
@@ -80,27 +84,45 @@ class LoginViewController: UIViewController, Storyboarded {
         }
     }
     
+    let accessToken = KeychainWrapper.standard.string(forKey: "accessToken")
+
+    var apiManager = AuthService()
+    var service: AuthServiceProtocol?
+    
     @objc private func handleSignIn() {
-        setLoginButton(enabled: false)
-        showActivityIndicator()
-        
         guard let email = contentView.loginTextField.text,
               let password = contentView.passwordTextField.text
-              else { return }
-        Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                self.setLoginButton(enabled: true)
-                self.handleError(error) 
-                self.activityIndicator.stopAnimating()
-                return
+        else { return }
+        
+        apiManager.signIn(email: email, password: password) { [self] result in
+            switch result {
+            case let .success(tokenResponse):
+                print(tokenResponse.token)
+                setLoginButton(enabled: false)
+                contentView.loginBtn.setTitle("", for: .disabled)
+                showActivityIndicator()
+                self.presentingViewController?.dismiss(animated: true, completion: nil)
+                
+            case let .failure(error):
+                print(error)
             }
-            // self.saveToFirebase()
-            self.presentingViewController?.dismiss(animated: true, completion: nil)
-            print("logged in")
         }
+//                              Firebase authoriztion
+        
+//        Auth.auth().signIn(withEmail: email, password: password) { _, error in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                self.setLoginButton(enabled: true)
+//                self.handleError(error)
+//                self.activityIndicator.stopAnimating()
+//                return
+//            }
+//            // self.saveToFirebase()
+//            self.presentingViewController?.dismiss(animated: true, completion: nil)
+//            print("logged in")
+//        }
     }
-    
+        
     // swiftlint:disable force_cast
     @objc func keyboardWillAppear(notification: NSNotification) {
         let userInfo = notification.userInfo!
@@ -110,23 +132,29 @@ class LoginViewController: UIViewController, Storyboarded {
                     y: view.frame.height - keyboardFrame.height - 16.0 - contentView.continueButton.frame.height / 2)
     }
     
-    private func saveToFirebase() {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
-        let userData = ["email": userProfile?.email]
-        let values = [uid: userData]
-        Database.database().reference().child("users").onDisconnectUpdateChildValues(values) { (error, _) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            print("saved")
-        }
-    }
+//    private func saveToFirebase() {
+//        guard let uid = Auth.auth().currentUser?.uid else {
+//            return
+//        }
+//        let userData = ["email": userProfile?.email]
+//        let values = [uid: userData]
+//        Database.database().reference().child("users").onDisconnectUpdateChildValues(values) { error, _ in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            print("saved")
+//        }
+//    }
+    
     @objc private func toSignUp() {
         let vc = storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as? RegistrationViewController
-        vc?.modalPresentationStyle = .fullScreen
+        vc?.modalPresentationStyle = .popover
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
+    private func openProfilePage() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "UserViewController") as? UserViewController
         self.present(vc!, animated: true, completion: nil)
     }
 }

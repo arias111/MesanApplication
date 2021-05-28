@@ -10,4 +10,9 @@ target 'MesanApplication' do
   pod 'SwiftGen', '~> 6.0'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'SwiftIcons', '~> 3.0'
+  pod 'FittedSheets'
+  pod 'Moya', '~> 14.0'
+  pod 'SwiftKeychainWrapper'
+  pod 'JWTDecode', '~> 2.6'
 end

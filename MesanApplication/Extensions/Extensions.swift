@@ -29,23 +29,25 @@ extension UIView {
 }
 
 extension UIColor {
-    convenience init? (hexValue: String, alpha: CGFloat) {
-        if hexValue.hasPrefix("#") {
-            let scanner = Scanner(string: hexValue)
-            scanner.scanLocation = 1
-            var hexInt32: UInt32 = 0
-            if hexValue.count == 7 {
-                if scanner.scanHexInt32(&hexInt32) {
-                    let red = CGFloat((hexInt32 & 0xFF0000) >> 16) / 255
-                    let green = CGFloat((hexInt32 & 0x00FF00) >> 8) / 255
-                    let blue = CGFloat(hexInt32 & 0x0000FF) / 255
-                    self.init(red: red, green: green, blue: blue, alpha: alpha)
-                    return
-                }
-            }
-        }
-        return nil
-    }
+    
+//    convenience init? (hexValue: String, alpha: CGFloat) {
+//        if hexValue.hasPrefix("#") {
+//            let scanner = Scanner(string: hexValue)
+//            scanner.scanLocation = 1
+//            var hexInt32: UInt32 = 0
+//            if hexValue.count == 7 {
+//                if scanner.scanHexInt32(&hexInt32) {
+//                    let red = CGFloat((hexInt32 & 0xFF0000) >> 16) / 255
+//                    let green = CGFloat((hexInt32 & 0x00FF00) >> 8) / 255
+//                    let blue = CGFloat(hexInt32 & 0x0000FF) / 255
+//                    self.init(red: red, green: green, blue: blue, alpha: alpha)
+//                    return
+//                }
+//            }
+//        }
+//        return nil
+//    }
+    
     func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
         let gradient = CAGradientLayer()
         gradient.colors = [topColor.cgColor, bottomColor.cgColor]
@@ -58,27 +60,35 @@ extension UIColor {
 extension AuthErrorCode {
     var errorMessage: String {
         switch self {
+            
         case .emailAlreadyInUse:
-            return L10n.Error.emailAlreadyInUse
+                return L10n.Error.emailAlreadyInUse
+            
         case .userNotFound:
-            return L10n.Error.userNotFound
+                return L10n.Error.userNotFound
+            
         case .userDisabled:
-            return L10n.Error.userDisabled
+                return L10n.Error.userDisabled
+            
         case .invalidEmail, .invalidSender, .invalidRecipientEmail:
-            return L10n.Error.invalidEmail
+                return L10n.Error.invalidEmail
+            
         case .networkError:
-            return L10n.Error.networkError
+                return L10n.Error.networkError
+            
         case .weakPassword:
-            return L10n.Error.weakPassword
+                return L10n.Error.weakPassword
+            
         case .wrongPassword:
-            return L10n.Error.wrongPassword
+                return L10n.Error.wrongPassword
+            
         default:
-            return L10n.Error.error
+                return L10n.Error.error
         }
     }
 }
 
-extension UIViewController{
+extension UIViewController {
     func handleError(_ error: Error) {
         if let errorCode = AuthErrorCode(rawValue: error._code) {
             print(errorCode.errorMessage)
@@ -91,5 +101,16 @@ extension UIViewController{
             self.present(alert, animated: true, completion: nil)
         }
     }
+}
 
+extension UIImageView {
+    func addBlurEffect() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.systemUltraThinMaterialLight)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.bounds
+
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+        self.addSubview(blurEffectView)
+    }
+    
 }

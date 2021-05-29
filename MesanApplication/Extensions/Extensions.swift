@@ -112,5 +112,8 @@ extension UIImageView {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
         self.addSubview(blurEffectView)
     }
-    
+}
+
+extension Notification.Name {
+    static let cartUpdated = Notification.Name(rawValue: "cartUpdated")
 }

@@ -82,6 +82,7 @@ class DetailViewController: UIViewController {
                 }))
                 alert.addAction(UIAlertAction(title: "Продолжить покупки", style: UIAlertAction.Style.cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+                NotificationCenter.default.post(Notification(name: .cartUpdated))
                 
             case let .failure(error):
                 let alert = UIAlertController(title: "Товар не добавлен", message: "", preferredStyle: UIAlertController.Style.alert)

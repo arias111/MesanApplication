@@ -30,7 +30,20 @@ class CartViewController: UIViewController {
         let nib1 = UINib(nibName: "CartTableViewCell", bundle: nil)
         contentView.tableView.register(nib1, forCellReuseIdentifier: CartTableViewCell.identifier)
         contentView.orderButton.addTarget(self, action: #selector(orderProduct), for: .touchUpInside)
+        setupObservers()
         loadCart()
+    }
+    
+    private func setupObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dataUpdated), name: .cartUpdated, object: nil)
+    }
+    
+    @objc func dataUpdated() {
+        loadCart()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func obtainCell(cell: CartTableViewCell, indexPath: IndexPath) {

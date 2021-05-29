@@ -36,12 +36,6 @@ class DetailsService: DetailsInfoProtocols {
                 guard (200...299).contains(moyaResponse.statusCode)
                 else { return completion(.failure(NSError(domain: "", code: 1, userInfo: nil))) }
                 completion(.success(true))
-//                do {
-//                    let addResponse = try moyaResponse.map(AddResponse.self)
-//                    completion(.success(addResponse))
-//                } catch {
-//                    completion(.failure(error))
-//                }
 
             case let .failure(error):
                 completion(.failure(error))

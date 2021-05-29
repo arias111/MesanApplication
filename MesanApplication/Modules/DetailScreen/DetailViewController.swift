@@ -57,7 +57,7 @@ class DetailViewController: UIViewController {
                     self?.contentView.infoLabel.text = self?.product?.name
                     guard let image = self?.details?.imageName
                     else { return }
-                    guard let imageUrl = URL(string: "http://localhost:8345/files/\(image)")
+                    guard let imageUrl = URL(string: BaseUrl.url + "/files/\(image)")
                     else { return }
                     
                     self?.contentView.productImage.kf.indicatorType = .activity

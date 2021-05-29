@@ -12,6 +12,7 @@ import UIKit
 public protocol Grid {
     /// Размер минимального элемента сетки
     static var gridUnitSize: CGSize { get }
+    
 }
 
 // MARK: - Cетки для верстки по-умолчанию
@@ -21,7 +22,7 @@ public extension Grid {
     static var gridUnitSize: CGSize { return CGSize(4) }
     
     // MARK: Grid multipliers
-    
+        
     /// = 1
     static var xxxs: CGFloat { return 1 }
     /// = 2
@@ -124,6 +125,7 @@ public extension Grid {
     
     /// Размер пикселя, в зависимости от scale экрана
     var pixelSize: CGFloat { return 1 / UIScreen.main.scale }
+    
 }
 
 public extension CGFloat {

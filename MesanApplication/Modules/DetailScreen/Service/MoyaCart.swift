@@ -16,7 +16,6 @@ extension MoyaCart: TargetType {
     
     var headers: [String: String]? {
         [:]
-//        return ["Content-Type": "application/json"]
     }
     
     var sampleData: Data {
@@ -24,7 +23,7 @@ extension MoyaCart: TargetType {
     }
     
     var baseURL: URL {
-        return URL(string: "http://localhost:8345")!
+        return URL(string: BaseUrl.url)!
     }
     
     var path: String {

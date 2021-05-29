@@ -35,36 +35,6 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         fetchUserData()
     }
     
-//    func loadMemberProfile() {
-//        let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
-//        let userId: String? = KeychainWrapper.standard.string(forKey: "userId")
-//        let url = URL(string: "http://localhost:8345/users/\(userId)")
-//
-//        var request = URLRequest(url: url!)
-//        request.httpMethod = "GET"
-//        request.addValue("Bearer\(accessToken!)", forHTTPHeaderField: "Authorization")
-//
-//        let session = URLSession.shared.dataTask(with: request) { data, response, error in
-//            guard let data = data, let response = response
-//            else { return }
-//
-//            do {
-//                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
-//
-//                if let parseJson = json {
-//
-//                    DispatchQueue.main.async {
-//                        let username: String? = parseJson["username"] as? String
-//                        let email: String? = parseJson["email"] as? String
-//                        print(username, email)
-//                    }
-//                }
-//            } catch {
-//                print(error)
-//            }
-//        }
-//    }
-    
     private lazy var contentView = UserPageView()
     // MARK: - Live cycle
     

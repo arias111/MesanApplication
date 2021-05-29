@@ -11,8 +11,8 @@ import Kingfisher
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     private lazy var contentView = CategoriesView()
-    let url = "http://localhost:8345/getCategories"
-    let productUrl = "http://localhost:8345/categories/1/productList"
+    let url = BaseUrl.url + "/getCategories"
+    let productUrl = BaseUrl.url + "/categories/1/productList"
     private let service: CategoryService = CategoryMockService()
     private let productService: ProductProtocols = ProductService()
     private var categories: [CategoryModel] = []
@@ -68,7 +68,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     private func obtainCell(cell: CategoryCollectionViewCell, indexPath: IndexPath) {
         let category = categories[indexPath.item]
         
-        guard let imageUrl = URL(string: "http://localhost:8345/files/\(category.imageName!)")
+        guard let imageUrl = URL(string: BaseUrl.url + "/files/\(category.imageName!)")
         else { return }
         
         cell.categoryImage.kf.indicatorType = .activity
@@ -81,7 +81,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         guard let name = product.name
         else { return }
         cell.nameLabel.text = name
-        guard let imageUrl = URL(string: "http://localhost:8345/files/\(product.imageName!)")
+        guard let imageUrl = URL(string: BaseUrl.url + "/files/\(product.imageName!)")
         else { return }
         
         cell.logoImageView.kf.indicatorType = .activity
@@ -107,7 +107,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let category = categories[indexPath.item]
-        let url = "http://localhost:8345/categories/\(category.id!)/productList"
+        let url = BaseUrl.url + "/categories/\(category.id!)/productList"
         productService.loadProduct(url: url) { [self] result in
             switch result {
             case .success(let products):

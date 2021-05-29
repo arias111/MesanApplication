@@ -20,10 +20,10 @@ enum MyCustomError: Error {
 
 class AuthService: AuthServiceProtocol {
     let provider = MoyaProvider<MoyaApi>()
-    
+
     func signInWithUrlSession(email: String, password: String, completion: @escaping (Result<TokenResponse, Error>) -> Void) {
 
-        guard let url = URL(string: "http://localhost:8345/signInToken") else {
+        guard let url = URL(string: BaseUrl.url + "/signInToken") else {
             return
         }
 

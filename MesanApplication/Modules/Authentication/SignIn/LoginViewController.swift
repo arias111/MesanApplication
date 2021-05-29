@@ -15,12 +15,7 @@ class LoginViewController: UIViewController {
     var userProfile: UserProfile?
     var activityIndicator: UIActivityIndicatorView!
     private lazy var contentView = LoginView()
-//    var presenter: LoginViewOutput?
-    
-//    private func setup() {
-//        presenter = LoginPresenter(view: self)
-//    }
-//
+
     // MARK: - Live cycle
     
     override func loadView() {

@@ -23,7 +23,7 @@ extension MoyaApi: TargetType {
     }
     
     var baseURL: URL {
-        return URL(string: "http://localhost:8345")!
+        return URL(string: BaseUrl.url)!
     }
     
     var path: String {

@@ -12,7 +12,7 @@ import SwiftKeychainWrapper
 class CartService: CartServiceProtocols {
     
     func checkoutCart(completion: @escaping (Result<Bool, Error>) -> Void) {
-        guard let url = URL(string: "http://localhost:8345/checkout")
+        guard let url = URL(string: BaseUrl.url + "/checkout")
         else { return }
         guard let retrievedString: String = KeychainWrapper.standard.string(forKey: "accessToken")
         else { return }
@@ -32,7 +32,7 @@ class CartService: CartServiceProtocols {
     }
     
     func loadCart(completion: @escaping (Result<[CartModel], Error>) -> Void) {
-        guard let url = URL(string: "http://localhost:8345/basket")
+        guard let url = URL(string: BaseUrl.url + "/basket")
         else { return }
         guard let retrievedString: String = KeychainWrapper.standard.string(forKey: "accessToken")
         else { return }

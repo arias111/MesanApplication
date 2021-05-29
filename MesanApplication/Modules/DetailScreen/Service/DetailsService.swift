@@ -11,11 +11,10 @@ import Moya
 
 class DetailsService: DetailsInfoProtocols {
 
-    private let base = "http://localhost:8345/"
     let provider = MoyaProvider<MoyaCart>()
 
     func loadProductDetails(id: Int, completion: @escaping (Result<ProductDetails, Error>) -> Void) {
-        guard let url = URL(string: "http://localhost:8345/categories/\(id)/detail")
+        guard let url = URL(string: BaseUrl.url + "/categories/\(id)/detail")
         else { return }
         
         AF.request(url, method: .get).responseJSON { response in

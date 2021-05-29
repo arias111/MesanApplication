@@ -48,7 +48,7 @@ class CartViewController: UIViewController {
     
     private func obtainCell(cell: CartTableViewCell, indexPath: IndexPath) {
         let cart = self.cartModel[indexPath.row]
-        guard let imageUrl = URL(string: "http://localhost:8345/files/\(cart.image!)")
+        guard let imageUrl = URL(string: BaseUrl.url + "/files/\(cart.image!)")
         else { return }
         cell.nameLabel.text = cart.name
         guard let quantity = cart.quantity
@@ -102,9 +102,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CartTableViewCell.identifier, for: indexPath) as? CartTableViewCell else { fatalError("Could not dequeue cell") }
-        DispatchQueue.main.async {
-            self.obtainCell(cell: cell, indexPath: indexPath)
-        }
+        self.obtainCell(cell: cell, indexPath: indexPath)
         return cell
     }
     

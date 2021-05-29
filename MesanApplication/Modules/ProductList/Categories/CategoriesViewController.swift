@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -70,8 +71,8 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         guard let imageUrl = URL(string: "http://localhost:8345/files/\(category.imageName!)")
         else { return }
         
-        let imageData = try? Data(contentsOf: imageUrl)
-        cell.categoryImage.image = UIImage(data: imageData!)
+        cell.categoryImage.kf.indicatorType = .activity
+        cell.categoryImage.kf.setImage(with: imageUrl, placeholder: #imageLiteral(resourceName: "No-Image-Placeholder"))
     }
     
     private func obtainTableCell(cell: ProductTableViewCell, indexPath: IndexPath) {
@@ -83,9 +84,8 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         guard let imageUrl = URL(string: "http://localhost:8345/files/\(product.imageName!)")
         else { return }
         
-        guard let imageData = try? Data(contentsOf: imageUrl)
-        else { return }
-        cell.logoImageView.image = UIImage(data: imageData)
+        cell.logoImageView.kf.indicatorType = .activity
+        cell.logoImageView.kf.setImage(with: imageUrl, placeholder: #imageLiteral(resourceName: "No-Image-Placeholder"))
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

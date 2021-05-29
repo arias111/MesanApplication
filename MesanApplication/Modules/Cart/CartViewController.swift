@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CartViewController: UIViewController {
 
@@ -13,6 +14,11 @@ class CartViewController: UIViewController {
     private let cartService: CartServiceProtocols = CartService()
     private var cartModel: [CartModel] = []
 
+    @IBAction private func refreshBtn(_ sender: Any) {
+        contentView.tableView.reloadData()
+        print("tapped")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(contentView)
@@ -24,17 +30,7 @@ class CartViewController: UIViewController {
         let nib1 = UINib(nibName: "CartTableViewCell", bundle: nil)
         contentView.tableView.register(nib1, forCellReuseIdentifier: CartTableViewCell.identifier)
         contentView.orderButton.addTarget(self, action: #selector(orderProduct), for: .touchUpInside)
-        cartService.loadCart { result in
-            switch result {
-            case .success(let cart):
-                self.cartModel = cart
-                self.contentView.tableView.reloadData()
-                print(cart)
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
+        loadCart()
     }
     
     private func obtainCell(cell: CartTableViewCell, indexPath: IndexPath) {
@@ -45,22 +41,22 @@ class CartViewController: UIViewController {
         guard let quantity = cart.quantity
         else { return }
         print(cart)
-//        DispatchQueue.global().async {
-//            if let imageUrl = imageUrl,
-//                let data = try? Data(contentsOf: imageUrl) {
-//                DispatchQueue.main.async {
-//                    self.cell.cartImageView.image = UIImage(data: data)
-//                }
-//            }
-//        }
+
         cell.quantityLabel.text = "\(quantity)"
-        DispatchQueue.global().async {
-            
-        }
-        if let imageData = try? Data(contentsOf: imageUrl) {
-            cell.productImage.image = UIImage(data: imageData)
-        } else {
-            cell.productImage.image = #imageLiteral(resourceName: "No-Image-Placeholder")
+        cell.productImage.kf.indicatorType = .activity
+        cell.productImage.kf.setImage(with: imageUrl, placeholder: #imageLiteral(resourceName: "No-Image-Placeholder"), options: [.transition(.fade(0.5))], progressBlock: nil)
+    }
+    
+    private func loadCart() {
+        cartService.loadCart { result in
+            switch result {
+            case .success(let cart):
+                self.cartModel = cart
+                self.contentView.tableView.reloadData()
+                
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     
@@ -73,7 +69,7 @@ class CartViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "Ок", style: UIAlertAction.Style.default, handler: { alert in
                 }))
                 self.present(alert, animated: true, completion: nil)
-                
+
             case let .failure(error):
                 print(error)
                 let alert = UIAlertController(title: "Заказ не офрмлен", message: "", preferredStyle: UIAlertController.Style.alert)

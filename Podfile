@@ -15,4 +15,5 @@ target 'MesanApplication' do
   pod 'Moya', '~> 14.0'
   pod 'SwiftKeychainWrapper'
   pod 'JWTDecode', '~> 2.6'
+  pod 'Kingfisher', '~> 6.0'
 end

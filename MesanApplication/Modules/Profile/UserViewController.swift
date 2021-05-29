@@ -122,8 +122,8 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
             try Auth.auth().signOut()
             
             DispatchQueue.main.async {
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                guard let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
+//                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                guard let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
                 else { return }
                 self.present(loginViewController, animated: true)
                 return

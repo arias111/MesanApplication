@@ -95,7 +95,7 @@ class CartView: UIView {
         tableView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(topView.snp.bottom)
-            make.bottom.equalToSuperview().offset(70)
+            make.bottom.equalTo(orderButton.snp.bottom).inset(30)
         }
         
         orderButton.snp.makeConstraints { make in

@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bKp-U4-ik4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Custom Tab View Controller-->
+        <scene sceneID="3R6-wx-O4F">
+            <objects>
+                <tabBarController id="bKp-U4-ik4" customClass="CustomTabViewController" customModule="MesanApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="buL-Ya-KTE" customClass="CustomTabBar" customModule="MesanApplication" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cJz-Df-Kqb" kind="relationship" relationship="viewControllers" id="gwJ-UN-JkX"/>
+                        <segue destination="0s5-BS-SxT" kind="relationship" relationship="viewControllers" id="V7V-ZK-tbk"/>
+                        <segue destination="2Mj-VO-xrU" kind="relationship" relationship="viewControllers" id="lST-JS-shc"/>
+                        <segue destination="8ng-vU-ZmL" kind="relationship" relationship="viewControllers" id="fbR-rZ-zgB"/>
+                        <segue destination="VUY-sG-urv" kind="relationship" relationship="viewControllers" id="U5x-Ad-VAa"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lyn-E3-Tk2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="396"/>
+        </scene>
+        <!--Корзина-->
+        <scene sceneID="ndX-fr-gJw">
+            <objects>
+                <viewController storyboardIdentifier="CartViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="J75-Ad-oiW" customClass="CartViewController" customModule="MesanApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eOE-A9-4FT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="OzZ-eG-xnq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Корзина" id="eFA-DS-QzJ">
+                        <barButtonItem key="rightBarButtonItem" image="trash" catalog="system" style="plain" id="172-cq-qRC">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M4y-T0-fa4">
+                                <rect key="frame" x="332" y="0.0" width="62" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" image="trash" catalog="system"/>
+                            </button>
+                            <connections>
+                                <action selector="refreshBtn:" destination="J75-Ad-oiW" id="eZs-qY-zg0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YDj-pa-xXp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2458" y="1992"/>
+        </scene>
+        <!--Каталог-->
+        <scene sceneID="Vw9-KG-NGW">
+            <objects>
+                <viewController storyboardIdentifier="CategoriesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hFL-n8-vO9" customClass="CategoriesViewController" customModule="MesanApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5dK-eE-94i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VKW-Np-EGT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Каталог" id="sso-n2-Iqh"/>
+                    <connections>
+                        <segue destination="aLg-Rn-wfd" kind="show" identifier="segue" id="rFh-dN-OdY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PWN-ac-jyP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-315.94202898550725" y="1170.5357142857142"/>
+        </scene>
+        <!--Главная-->
+        <scene sceneID="3qn-ew-oYU">
+            <objects>
+                <viewController id="2Mj-VO-xrU" customClass="MainViewController" customModule="MesanApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dN8-yq-JUs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zae-2K-pHg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Главная" id="7Kz-to-qSl"/>
+                    <connections>
+                        <segue destination="P8p-TE-WyK" kind="show" identifier="segue" id="74x-71-O3i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U3C-4B-jMC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1421.7391304347827" y="1170.5357142857142"/>
+        </scene>
+        <!--Профиль-->
+        <scene sceneID="Q6C-5h-Myn">
+            <objects>
+                <viewController storyboardIdentifier="UserViewController" id="0s5-BS-SxT" customClass="UserViewController" customModule="MesanApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QiD-gd-bkL" customClass="UserPageView" customModule="MesanApplication" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="amd-iO-rQz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Профиль" image="person.circle" catalog="system" selectedImage="person.circle" id="zcE-MH-P52"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w9d-wr-Glt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2515.9420289855075" y="1170.5357142857142"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="3he-31-xSP">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="By5-aS-oHH" customClass="LoginViewController" customModule="MesanApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fHu-gZ-cvf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZYe-xg-Bcd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="X8f-p2-ViJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P2K-Gh-lgz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4784.057971014493" y="1148.4375"/>
+        </scene>
+        <!--Registration View Controller-->
+        <scene sceneID="1bf-Wy-8YB">
+            <objects>
+                <viewController storyboardIdentifier="RegistrationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KVI-Vz-1Aq" customClass="RegistrationViewController" customModule="MesanApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rDT-i6-ZcG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tcO-QL-WD4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7pg-Ro-9g5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5634.7826086956529" y="1149.7767857142856"/>
+        </scene>
+        <!--Detail User View Controller-->
+        <scene sceneID="OtB-cG-yC6">
+            <objects>
+                <viewController id="s3m-sT-LG1" customClass="DetailUserViewController" customModule="MesanApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ni6-vc-YqI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="R5E-fj-DrH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7yw-o7-8CB">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="GNn-Q6-J1H"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="oH7-dm-OOG"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CBc-N3-sCD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3249" y="1861"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="6fU-Bb-xJI">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aLg-Rn-wfd" customClass="DetailViewController" customModule="MesanApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KW2-Ks-jbw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="PBN-iG-0pF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zMD-QK-Goh">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="aVh-Ux-GUi"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="J75-Ad-oiW" kind="show" identifier="segue" id="xbi-Zf-C7D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iL7-J4-nYL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1029" y="1917"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="oDJ-JM-MiA">
+            <objects>
+                <viewController storyboardIdentifier="InfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P8p-TE-WyK" customClass="InfoViewController" customModule="MesanApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G4t-se-wAo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuR-hM-YwK">
+                                <rect key="frame" x="20" y="80" width="374" height="141"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oza-fi-Ypp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oza-fi-Ypp" firstAttribute="trailing" secondItem="IuR-hM-YwK" secondAttribute="trailing" constant="20" id="7qT-LF-TtX"/>
+                            <constraint firstItem="IuR-hM-YwK" firstAttribute="leading" secondItem="oza-fi-Ypp" secondAttribute="leading" constant="20" id="98S-mO-he4"/>
+                            <constraint firstItem="oza-fi-Ypp" firstAttribute="bottom" secondItem="IuR-hM-YwK" secondAttribute="bottom" constant="587" id="AFL-kW-ZyT"/>
+                            <constraint firstItem="IuR-hM-YwK" firstAttribute="top" secondItem="oza-fi-Ypp" secondAttribute="top" constant="80" id="uOW-eM-YiD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DNH-mC-pZd"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="IuR-hM-YwK" id="phf-BN-RRW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bMP-5y-cON" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1421.7391304347827" y="1841.5178571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ezy-QO-Dyh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SFb-VG-GeF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EJT-vY-L30">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="s3m-sT-LG1" kind="relationship" relationship="rootViewController" id="pS2-VM-ue6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tXf-xA-w6U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2516" y="1861"/>
+        </scene>
+        <!--Товары-->
+        <scene sceneID="FLk-yj-DH8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8ng-vU-ZmL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Товары" image="bag.badge.plus" catalog="system" id="DzP-la-kB5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hpc-yw-b56">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hFL-n8-vO9" kind="relationship" relationship="rootViewController" id="p5A-iV-tVy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ngs-BW-uBB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1226.0869565217392" y="1170.5357142857142"/>
+        </scene>
+        <!--Корзина-->
+        <scene sceneID="Jrs-cP-COf">
+            <objects>
+                <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VUY-sG-urv" customClass="navController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Корзина" image="cart" catalog="system" id="cF6-HZ-Wza"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wm5-gx-gfv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="J75-Ad-oiW" kind="relationship" relationship="rootViewController" id="2nu-nB-L9n"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lzB-oC-eYa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2457" y="1171"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="w9K-1q-fSU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zsV-ie-6kN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OwY-4U-mqO">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="By5-aS-oHH" kind="relationship" relationship="rootViewController" id="tKf-Bz-eYJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3hh-Jh-MEw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3873.913043478261" y="1148.4375"/>
+        </scene>
+        <!--Карта-->
+        <scene sceneID="AOL-l8-xfX">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGw-xL-alv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="cJz-Df-Kqb" customClass="MapViewController" customModule="MesanApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IcU-N2-dl2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="laq-dj-YUZ">
+                                <rect key="frame" x="0.0" y="382" width="414" height="431"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccp-ZZ-4yL">
+                                <rect key="frame" x="32" y="84" width="350" height="298"/>
+                                <string key="text">Доставка осуществляется по всем направлениям РФ.
+
+БЕСПЛАТНАЯ доставка грузов до терминала отправки.
+
+Мы работаем с такими транспортными компаниями как Возовоз, Экспресс — Авто, Деловые линии и другими, представленными в г.Казани
+
+Стоимость доставки с терминала в Казани в Ваш регион рассчитывается в соответствии с тарифами ТК.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доставка" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34Y-lO-Lm6">
+                                <rect key="frame" x="78" y="66" width="259" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xpX-Cj-aDL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="laq-dj-YUZ" firstAttribute="leading" secondItem="xpX-Cj-aDL" secondAttribute="leading" id="1ke-rP-ccm"/>
+                            <constraint firstItem="laq-dj-YUZ" firstAttribute="bottom" secondItem="xpX-Cj-aDL" secondAttribute="bottom" id="22t-MZ-2Ll"/>
+                            <constraint firstItem="xpX-Cj-aDL" firstAttribute="trailing" secondItem="34Y-lO-Lm6" secondAttribute="trailing" constant="77" id="33M-eo-Gbv"/>
+                            <constraint firstItem="Ccp-ZZ-4yL" firstAttribute="top" secondItem="34Y-lO-Lm6" secondAttribute="bottom" id="43e-7B-eI3"/>
+                            <constraint firstItem="34Y-lO-Lm6" firstAttribute="leading" secondItem="xpX-Cj-aDL" secondAttribute="leading" constant="78" id="5Fp-DU-sah"/>
+                            <constraint firstItem="xpX-Cj-aDL" firstAttribute="trailing" secondItem="Ccp-ZZ-4yL" secondAttribute="trailing" constant="32" id="DBi-DI-HTz"/>
+                            <constraint firstItem="Ccp-ZZ-4yL" firstAttribute="top" secondItem="xpX-Cj-aDL" secondAttribute="top" constant="40" id="FMb-Hm-TR9"/>
+                            <constraint firstItem="laq-dj-YUZ" firstAttribute="top" secondItem="xpX-Cj-aDL" secondAttribute="top" constant="338" id="Prz-Hp-zLT"/>
+                            <constraint firstItem="Ccp-ZZ-4yL" firstAttribute="leading" secondItem="xpX-Cj-aDL" secondAttribute="leading" constant="32" id="nNr-l3-FO4"/>
+                            <constraint firstItem="laq-dj-YUZ" firstAttribute="trailing" secondItem="xpX-Cj-aDL" secondAttribute="trailing" id="pC0-uA-jpV"/>
+                            <constraint firstItem="laq-dj-YUZ" firstAttribute="top" secondItem="Ccp-ZZ-4yL" secondAttribute="bottom" id="z3W-8R-cyD"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Карта" image="mappin.circle" catalog="system" id="UTa-Gp-jeT"/>
+                    <connections>
+                        <outlet property="mapView" destination="laq-dj-YUZ" id="yWI-cT-OBY"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="512" y="1171"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xbi-Zf-C7D"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="bag.badge.plus" catalog="system" width="124" height="128"/>
+        <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="mappin.circle" catalog="system" width="128" height="121"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

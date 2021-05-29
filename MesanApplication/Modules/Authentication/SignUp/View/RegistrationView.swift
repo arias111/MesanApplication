@@ -96,14 +96,14 @@ final class RegistationView: UIView {
         
         passwordTextField.snp.makeConstraints { make in
             make.height.greaterThanOrEqualTo(appearance.xxlSpace)
-            make.width.greaterThanOrEqualTo(LoginView.Appearance.wigthSize)
+            make.width.greaterThanOrEqualTo(RegistationView.Appearance.wigthSize)
             make.centerX.equalTo(confirmTextField)
             make.left.equalToSuperview().offset(appearance.lSpace)
             make.bottom.equalTo(confirmTextField).offset(-RegistationView.Appearance.mySize)
         }
         loginTextField.snp.makeConstraints { make in
             make.height.greaterThanOrEqualTo(appearance.xxlSpace)
-            make.width.greaterThanOrEqualTo(LoginView.Appearance.wigthSize)
+            make.width.greaterThanOrEqualTo(RegistationView.Appearance.wigthSize)
             make.centerX.equalTo(confirmTextField)
             make.left.equalToSuperview().offset(appearance.lSpace)
             make.bottom.equalTo(passwordTextField).offset(-RegistationView.Appearance.mySize)
@@ -118,7 +118,6 @@ final class RegistationView: UIView {
             make.height.equalTo(RegistationView.Appearance.mySize)
             make.width.equalTo(confirmTextField).offset(-(appearance.xxxsSpace))
             make.centerX.equalTo(confirmTextField)
-//            make.left.equalToSuperview().offset(20)
             make.top.equalTo(confirmTextField).offset(100)
         }
     }

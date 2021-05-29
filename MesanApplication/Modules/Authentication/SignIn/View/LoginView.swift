@@ -123,8 +123,6 @@ final class LoginView: UIView {
             make.left.right.equalTo(loginBtn)
         }
         
-        //        guard let messanImage = UIImage(named: "logomesan") else {return}
-        //            let imageView = UIImageView(image: messanImage)
         logLabel.snp.makeConstraints { make in
             make.bottom.equalTo(loginTextField).offset(-70)
             make.centerX.equalToSuperview()

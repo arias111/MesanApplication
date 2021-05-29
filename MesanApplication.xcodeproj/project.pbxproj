@@ -51,6 +51,8 @@
 		6E99FD5B261713D3005CB19D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E99FD5A261713D3005CB19D /* LoginView.swift */; };
 		6E99FD62261729BB005CB19D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E99FD61261729BB005CB19D /* RegistrationView.swift */; };
 		6E99FD8E261798FB005CB19D /* RegistrationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E99FD8D261798FB005CB19D /* RegistrationViewPresenter.swift */; };
+		6E9D40692661801500EDDBFC /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E9D40682661801500EDDBFC /* Map.storyboard */; };
+		6E9D4070266182E600EDDBFC /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E9D406F266182E600EDDBFC /* MainScreen.storyboard */; };
 		6EABDCC726283F4C00AD1BCF /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6EABDCC626283F4C00AD1BCF /* swiftgen.yml */; };
 		6EB6499E2653D874005D9D0D /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6499D2653D874005D9D0D /* ProductService.swift */; };
 		6EB649A32653D9F8005D9D0D /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB649A12653D9F8005D9D0D /* ProductTableViewCell.swift */; };
@@ -131,6 +133,8 @@
 		6E99FD5A261713D3005CB19D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6E99FD61261729BB005CB19D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		6E99FD8D261798FB005CB19D /* RegistrationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewPresenter.swift; sourceTree = "<group>"; };
+		6E9D40682661801500EDDBFC /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		6E9D406F266182E600EDDBFC /* MainScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		6EABDCC626283F4C00AD1BCF /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		6EB6499D2653D874005D9D0D /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		6EB649A12653D9F8005D9D0D /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 			children = (
 				6E34B368262DF28E00FF1CD0 /* View */,
 				6E34B364262DF26300FF1CD0 /* MapViewController.swift */,
+				6E9D40682661801500EDDBFC /* Map.storyboard */,
 			);
 			path = Delivery;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 				6E77545026440FD50084BF80 /* Cell */,
 				6E666C6C2641DB5B00E73103 /* View */,
 				6E666C6D2641DB7400E73103 /* MainViewController.swift */,
+				6E9D406F266182E600EDDBFC /* MainScreen.storyboard */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -594,8 +600,8 @@
 				6ED6F3E82605FBA700736E25 /* Resources */,
 				6EABDCC926283FD100AD1BCF /* SwiftGen */,
 				6ED6F3E42605FB4900736E25 /* Modules */,
-				6ED6F3CC2605FB3700736E25 /* AppDelegate.swift */,
 				6ED6F3CE2605FB3700736E25 /* SceneDelegate.swift */,
+				6ED6F3CC2605FB3700736E25 /* AppDelegate.swift */,
 				6EE5202526299C6F00C19F81 /* GoogleService-Info.plist */,
 				6ED6F3DD2605FB3700736E25 /* Info.plist */,
 				6ED6F3D22605FB3700736E25 /* Main.storyboard */,
@@ -744,6 +750,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EB649A42653D9F8005D9D0D /* ProductTableViewCell.xib in Resources */,
+				6E9D40692661801500EDDBFC /* Map.storyboard in Resources */,
 				6E5EA34926581B0D00DB5A32 /* InfoTableViewCell.xib in Resources */,
 				6E7B7C302636C06B00F8AD06 /* DetailTableViewCell.xib in Resources */,
 				6ED6F3DC2605FB3700736E25 /* LaunchScreen.storyboard in Resources */,
@@ -753,6 +760,7 @@
 				6ED6F3D42605FB3700736E25 /* Main.storyboard in Resources */,
 				6EC1B50E265A710200DCD6B0 /* CartTableViewCell.xib in Resources */,
 				6E85CF2B264EE27C00EF218E /* CategoryCollectionViewCell.xib in Resources */,
+				6E9D4070266182E600EDDBFC /* MainScreen.storyboard in Resources */,
 				6EBB53772634A56E0088FA71 /* ProfileTableViewCell.xib in Resources */,
 				6EABDCC726283F4C00AD1BCF /* swiftgen.yml in Resources */,
 				6EE5202626299C6F00C19F81 /* GoogleService-Info.plist in Resources */,

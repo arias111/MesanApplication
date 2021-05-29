@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailViewController: UIViewController {
     var descriptionProduct: String = ""
@@ -58,10 +59,9 @@ class DetailViewController: UIViewController {
                     else { return }
                     guard let imageUrl = URL(string: "http://localhost:8345/files/\(image)")
                     else { return }
-                    print(imageUrl)
-                    guard let imageData = try? Data(contentsOf: imageUrl)
-                    else { return }
-                    self?.contentView.productImage.image = UIImage(data: imageData)
+                    
+                    self?.contentView.productImage.kf.indicatorType = .activity
+                    self?.contentView.productImage.kf.setImage(with: imageUrl, placeholder: #imageLiteral(resourceName: "No-Image-Placeholder"))
                 }
                 
             case .failure(let error):
@@ -98,10 +98,4 @@ class DetailViewController: UIViewController {
         guard let destination = segue.destination as? CartViewController
         else { return }
     }
-
-//    private func openProfilePage() {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController
-//        vc?.modalPresentationStyle = .fullScreen
-//        self.present(vc!, animated: true, completion: nil)
-//    }
 }
